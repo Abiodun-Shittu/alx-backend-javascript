@@ -10,16 +10,22 @@ export default class Pricing {
     return this._amount;
   }
 
-  set amount(value) {
-    this._amount = value;
+  set amount(newAmount) {
+    if (typeof newAmount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
+    this._amount = newAmount;
   }
 
   get currency() {
     return this._currency;
   }
 
-  set currency(value) {
-    this._currency = value;
+  set currency(newCurrency) {
+    if (!(newCurrency instanceof Currency)) {
+      throw new TypeError('currency must be a Currency');
+    }
+    this._currency = newCurrency;
   }
 
   displayFullPrice() {
@@ -27,6 +33,12 @@ export default class Pricing {
   }
 
   static convertPrice(amount, conversionRate) {
+    if (typeof amount !== 'number') {
+      throw new TypeError('amount must be a number');
+    }
+    if (typeof conversionRate !== 'number') {
+      throw new TypeError('conversionRate must be a number');
+    }
     return amount * conversionRate;
   }
 }
