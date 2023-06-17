@@ -4,8 +4,8 @@
   "description": "ALX-SE Projects for unittests in JavaScript.",
 	"type": "module",
   "scripts": {
-		"test": "mocha"
-	},
+    "test": "./node_modules/mocha/bin/mocha.js"
+  },
   "keywords": [],
   "author": "Abiodun Shittu",
   "license": "ISC",
